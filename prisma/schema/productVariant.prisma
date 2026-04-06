@@ -1,0 +1,13 @@
+model ProductVariant {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId   String   @map("product_id") @db.Uuid
+  material    String   @db.VarChar(100)
+  color       String   @db.VarChar(50)
+  price       Decimal  @db.Decimal(10, 2)
+  imageUrl    String?  @map("image_url") @db.Text
+  stockStatus String   @default("Tersedia") @map("stock_status") @db.VarChar(50)
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("product_variants")
+}

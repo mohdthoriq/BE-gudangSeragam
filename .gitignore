@@ -3,4 +3,4 @@ node_modules
 public/uploads/*
 dist
 prisma/migrations
-/src/generated/prisma
+generated
